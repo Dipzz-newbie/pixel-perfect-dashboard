@@ -1,17 +1,18 @@
 import { Home, CreditCard, Receipt, TrendingUp, Settings, LogOut } from "lucide-react";
+import { NavLink } from "@/components/NavLink";
 import { Button } from "@/components/ui/button";
 
 const Sidebar = () => {
   const menuItems = [
-    { icon: Home, label: "Home", active: true },
-    { icon: CreditCard, label: "Cards", active: false },
-    { icon: Receipt, label: "Transactions", active: false },
-    { icon: TrendingUp, label: "Statistics", active: false },
-    { icon: Settings, label: "Settings", active: false },
+    { icon: Home, label: "Home", path: "/" },
+    { icon: CreditCard, label: "Cards", path: "/cards" },
+    { icon: Receipt, label: "Transactions", path: "/transactions" },
+    { icon: TrendingUp, label: "Statistics", path: "/statistics" },
+    { icon: Settings, label: "Settings", path: "/settings" },
   ];
 
   return (
-    <aside className="w-64 h-screen bg-sidebar border-r border-sidebar-border flex flex-col">
+    <aside className="w-64 h-screen bg-sidebar border-r border-sidebar-border flex flex-col sticky top-0">
       {/* Logo */}
       <div className="p-6 flex items-center gap-2">
         <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
@@ -23,18 +24,16 @@ const Sidebar = () => {
       {/* Navigation */}
       <nav className="flex-1 px-4 py-8 space-y-2">
         {menuItems.map((item) => (
-          <Button
+          <NavLink
             key={item.label}
-            variant={item.active ? "default" : "ghost"}
-            className={`w-full justify-start gap-3 ${
-              item.active
-                ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                : "text-sidebar-foreground hover:bg-sidebar-accent"
-            }`}
+            to={item.path}
+            end
+            className="flex items-center gap-3 px-4 py-3 rounded-lg text-sidebar-foreground hover:bg-sidebar-accent transition-colors"
+            activeClassName="bg-primary text-primary-foreground hover:bg-primary/90"
           >
             <item.icon className="w-5 h-5" />
             {item.label}
-          </Button>
+          </NavLink>
         ))}
       </nav>
 
