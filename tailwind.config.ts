@@ -57,6 +57,26 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        wallet: {
+          card: "hsl(var(--wallet-card))",
+          foreground: "hsl(var(--wallet-card-foreground))",
+        },
+        avatar: {
+          pink: "hsl(var(--avatar-pink))",
+          yellow: "hsl(var(--avatar-yellow))",
+          green: "hsl(var(--avatar-green))",
+          purple: "hsl(var(--avatar-purple))",
+          blue: "hsl(var(--avatar-blue))",
+          orange: "hsl(var(--avatar-orange))",
+        },
+        stat: {
+          received: "hsl(var(--stat-received))",
+          sent: "hsl(var(--stat-sent))",
+        },
+        chart: {
+          primary: "hsl(var(--chart-primary))",
+          background: "hsl(var(--chart-background))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
